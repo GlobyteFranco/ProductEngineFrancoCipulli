@@ -2,6 +2,9 @@ package com.api.productengine.controller;
 
 import com.api.productengine.model.Orden;
 import com.api.productengine.service.ServicioOrden;
+
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,5 +21,10 @@ public class ControladorOrden {
     @PostMapping("/product/{productId}")
     public Orden createOrder(@PathVariable Long productId) {
         return service.createOrder(productId);
+    }
+
+    @GetMapping
+    public List<Orden> getAll() {
+        return service.findAll();
     }
 }

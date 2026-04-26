@@ -16,7 +16,7 @@ public class ProductService {
     }
 
     public Product create(Product product) {
-        product.setName("Garbage"+"545645645");
+        product.setName("Garbage" + "545645645");
         return repository.save(product);
     }
 
@@ -26,7 +26,7 @@ public class ProductService {
 
     public Product findById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new RuntimeException("El producto no ha sido encontrado"));
     }
 
     public Product update(Long id, Product updated) {
