@@ -27,30 +27,24 @@ public class ServicioOrden {
     @Transactional
     public Orden createOrder(Long productId) {
 
-        // 1️⃣ El producto debe existir
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
 
-        // 2️⃣ Debe haber stock disponible
         if (product.getStock() <= 0) {
             throw new RuntimeException("Product has no stock");
         }
 
-        // 3️⃣ El saldo debe ser positivo
         if (product.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
             throw new RuntimeException("El total de la orden debe ser positivo");
         }
 
-        // 4️⃣ Crear la orden
         Orden order = new Orden();
         order.setProduct(product);
         order.setTotal(product.getPrice());
 
-        // 5️⃣ Descontar stock
         product.setStock(product.getStock() - 1);
         productRepository.save(product);
 
-        // 6️⃣ Persistir la orden
         return orderRepository.save(order);
     }
 
