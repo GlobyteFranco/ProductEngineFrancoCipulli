@@ -1,7 +1,7 @@
 package com.api.productengine.model;
 
 import jakarta.persistence.*;
-        import java.math.BigDecimal;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "products")
@@ -22,8 +22,8 @@ public class Product {
     @Column(nullable = false)
     private Integer stock;
 
-    // Constructors
-    public Product() {}
+    public Product() {
+    }
 
     public Product(String name, String description, BigDecimal price, Integer stock) {
         this.name = name;
@@ -32,22 +32,39 @@ public class Product {
         this.stock = stock;
     }
 
-    // Getters and Setters
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getDescription() { return description; }
+    public String getDescription() {
+        return description;
+    }
 
-    public void setDescription(String description) { this.description = description; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public BigDecimal getPrice() { return price; }
+    public BigDecimal getPrice() {
+        return price;
+    }
 
-    public void setPrice(BigDecimal price) { this.price = price; }
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
-    public Integer getStock() { return stock; }
+    public Integer getStock() {
+        return stock;
+    }
 
-    public void setStock(Integer stock) { this.stock = stock; }
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
 }

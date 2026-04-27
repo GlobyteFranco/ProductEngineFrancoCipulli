@@ -17,7 +17,6 @@ public class ControladorOrden {
         this.service = service;
     }
 
-    // Crear una orden a partir de un producto
     @PostMapping("/product/{productId}")
     public Orden createOrder(@PathVariable Long productId) {
         return service.createOrder(productId);
