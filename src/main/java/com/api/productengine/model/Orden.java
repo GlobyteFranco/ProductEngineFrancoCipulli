@@ -12,16 +12,13 @@ public class Orden {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Cada orden es por un producto
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    // Total de la orden (saldo)
     @Column(nullable = false)
     private BigDecimal total;
 
-    // Constructor vacío obligatorio para JPA
     public Orden() {
     }
 
